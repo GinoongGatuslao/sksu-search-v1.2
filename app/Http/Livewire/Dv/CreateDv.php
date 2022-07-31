@@ -68,7 +68,7 @@ class CreateDv extends Component
     public $voucher_type;
     public $voucher;
     public $related_docs;
-    public $trackingNumber="00000";
+    public $trackingNumber=0;
     public $dvSorterID;
 
     //for to only
@@ -101,6 +101,7 @@ class CreateDv extends Component
 
     public function render()
     {
+         $this->trackingNumber=rand(1,999999);
         //get all travel_order_id from travel_order_applicant table
         $travel_order_id = DB::table('travel_order_applicants')->where('user_id',auth()->user()->id)->get('travel_order_id');
         $travelorderids = [];
@@ -371,7 +372,7 @@ class CreateDv extends Component
 
             $this->inputs = [];
 
-            $this->resetInputFields();
+           // $this->resetInputFields();
 
 
         //     uncomment this if necessary

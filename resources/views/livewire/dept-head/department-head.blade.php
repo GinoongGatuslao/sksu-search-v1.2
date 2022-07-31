@@ -1135,17 +1135,23 @@
                     <!-- card start -->
                     <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="overflow-hidden bg-white shadow sm:rounded-lg">
-                        <div class="px-4 py-5 sm:px-6">
+                        <div class="px-4 py-5 sm:px-6 flex justify-between">
                             <h3 class="text-lg font-medium leading-6 text-gray-900">
                                 Disbursement Voucher Information
-                            </h3>
-                            <p class="max-w-2xl mt-1 text-sm text-gray-500">
+                                <p class="max-w-2xl mt-1 text-sm text-gray-500">
                                 Voucher Details
-                            </p>
-
+                                </p>
+                            </h3>
+                           {{-- button print --}}
+                           @if ($dvInfo)
+                            <div class="flex items-center">
+                                <a class="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-md"  href="{{ route('reprintDV', ['id'=>$dvInfo->id]) }}">
+                                    Print DV
+                                </a>
+                            </div>
                         </div>
                         <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
-                            @if ($dvInfo)
+                            
                             <dl class="sm:divide-y sm:divide-gray-200">
                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">
@@ -1258,15 +1264,52 @@
                             @if($dvparticulars)
                             @foreach ($dvparticulars as $key => $dvparticular)
                             <dl class="sm:divide-y sm:divide-gray-200">
-                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-medium text-gray-500">
+                                <div class="border-t py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-bold text-gray-500 underline">
                                         Entry No. {{$key +1}}
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                         {{$dvparticular->entry}}
                                     </dd>
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">   
+                                    </dd>
+                                     <dt class="text-sm font-bold text-gray-500">
+                                       Responsibility Center
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                          @if ($dvparticular->responsibility_center== null
+                                        ||$dvparticular->responsibility_center=="")
+                                        -----
+                                        @else
+                                        {{$dvparticular->responsibility_center}}
+                                        @endif
+                                    </dd>
+                                     <dt class="text-sm font-bold text-gray-500">
+                                         MFO/PAP
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                         @if ($dvparticular->mfo_pap== null ||$dvparticular->mfo_pap=="")
+                                        -----
+                                        @else
+                                        {{$dvparticular->mfo_pap}}
+                                        @endif
+                                    </dd>
+                                     <dt class="text-sm font-bold text-gray-500">
+                                        Amount
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                        
+                                        @if ($dvparticular->amount== null || $dvparticular->amount==0)
+                                        -----
+                                        @else
+                                        {{$dvparticular->amount}}
+                                        @endif
+                                    </dd>
                                 </div>
-                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                {{-- <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">
                                         Responsibility Center
                                     </dt>
@@ -1305,7 +1348,7 @@
                                         {{$dvparticular->amount}}
                                         @endif
                                     </dd>
-                                </div>
+                                </div> --}}
                             </dl>
                             @endforeach
                             @else

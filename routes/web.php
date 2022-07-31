@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/client/dash', \App\Http\L
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/department-head/dash', \App\Http\Livewire\DeptHead\DepartmentHead::class)->name('department-head');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/department-head/reprintDV/2y10XGG0AJ7EyQj1tWzGwP21-Jex{id}-ZBpCtK8gCyDNDF8n-Nq3QVjN1BzzXS', \App\Http\Livewire\DeptHead\ReprintDV::class)->name('reprintDV');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/disbursements', function () {  return view('disbursements');})->name('disbursements');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/liquidations', function () {   return view('liquidations');})->name('liquidations');

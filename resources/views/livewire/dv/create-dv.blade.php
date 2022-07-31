@@ -767,7 +767,7 @@
                                     <img src="http://sksu.edu.ph/wp-content/uploads/2020/09/512x512-1.png"
                                         alt="sksu logo" class="object-scale-down h-full mx-auto w-14">
                                     <span class="text-xs text-center text-black">SKSU Works for Success!</span><br>
-                                    <span class="text-sm font-bold text-center text-black"> ISO 9001:2015</span>
+                                    {{-- <span class="text-sm font-bold text-center text-black"> ISO 9001:2015</span> --}}
                                 </div>
                             </div>
                             <div class="col-span-5 m-2 place-items-center">
@@ -780,8 +780,11 @@
                                 </div>
                             </div>
                             <div class="col-span-2 pr-2 m-2">
-                                <div class="m-3"> {!! QrCode::size(80)->margin(2)->backgroundColor(0, 0, 0,
-                                    0)->generate((string)$trackingNumber); !!}</div>
+                                <div class="m-3"> 
+                                {!! QrCode::size(80)->margin(2)->backgroundColor(0, 0, 0,0)->generate((string)$trackingNumber); !!}
+                                <span class="text-sm font-normal flex justify-center">{{$trackingNumber}}</span>
+                                </div>
+                                    
                             </div>
                         </div>
                         {{-- dV --}}

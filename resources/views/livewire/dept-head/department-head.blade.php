@@ -1143,14 +1143,15 @@
                                 </p>
                             </h3>
                            {{-- button print --}}
+                           @if ($dvInfo)
                             <div class="flex items-center">
-                                <button class="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-md">
+                                <a class="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-md"  href="{{ route('reprintDV', ['id'=>$dvInfo->id]) }}">
                                     Print DV
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
-                            @if ($dvInfo)
+                            
                             <dl class="sm:divide-y sm:divide-gray-200">
                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">

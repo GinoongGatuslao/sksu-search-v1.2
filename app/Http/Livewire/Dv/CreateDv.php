@@ -101,7 +101,7 @@ class CreateDv extends Component
 
     public function render()
     {
-         $this->trackingNumber=rand(1,999999);
+        
         //get all travel_order_id from travel_order_applicant table
         $travel_order_id = DB::table('travel_order_applicants')->where('user_id',auth()->user()->id)->get('travel_order_id');
         $travelorderids = [];
@@ -170,6 +170,11 @@ class CreateDv extends Component
         return view('livewire.dv.create-dv')->with('searchedusers', $this->searchedusers)->with('searchedsignatories', $this->searchedsignatories)
         ->with('dv_type_id', $this->dv_type_id)->with('related_docs' , $this->related_docs);
 
+    }
+
+    public function mount()
+    {
+        $this->trackingNumber=rand(1,999999);
     }
 
     public function saveDV(){

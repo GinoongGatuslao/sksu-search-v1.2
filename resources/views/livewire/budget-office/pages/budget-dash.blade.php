@@ -1276,16 +1276,23 @@
                     <!-- card start -->
                     <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="p-3 overflow-hidden bg-gray-100 shadow sm:rounded-lg" @click.away="showInput = false">
-                        <div class="px-4 py-5 sm:px-6">
+                        <div class="px-4 py-5 sm:px-6 flex justify-between">
                             <h3 class="text-lg font-medium leading-6 text-gray-900">
                                 Disbursement Voucher Information
-                            </h3>
-                            <p class="max-w-2xl mt-1 text-sm text-gray-500">
+                                <p class="max-w-2xl mt-1 text-sm text-gray-500">
                                 Voucher Details
-                            </p>
+                                </p>
+                            </h3>
+                            
+                             @if ($dvInfo)
+                            <div class="flex items-center">
+                                <a class="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-md"  href="{{ route('reprintDV', ['id'=>$dvInfo->id]) }}">
+                                    Print DV
+                                </a>
+                            </div>
                         </div>
                         <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
-                            @if ($dvInfo)
+                            
                             <dl class="sm:divide-y sm:divide-gray-200">
                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">

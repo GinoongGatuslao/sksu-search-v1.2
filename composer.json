@@ -10,6 +10,8 @@
     "require": {
         "php": "^7.3|^8.0",
         "doctrine/dbal": "^3.1",
+        "filament/forms": "^2.0",
+        "filament/tables": "^2.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "jantinnerezo/livewire-alert": "^2.1",
@@ -21,8 +23,6 @@
         "livewire/livewire": "^2.5",
         "pusher/pusher-php-server": "^7.0",
         "simplesoftwareio/simple-qrcode": "~4",
-        "spatie/laravel-medialibrary": "^9.0.0",
-        "spatie/laravel-medialibrary-pro": "^1.0.0",
         "woenel/prpcmblmts": "^1.0"
     },
     "require-dev": {

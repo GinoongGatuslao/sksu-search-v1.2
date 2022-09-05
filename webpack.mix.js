@@ -21,7 +21,7 @@ mix.js('resources/js/app.js', 'public/js')
     mix.override((webpackConfig) => {
         webpackConfig.resolve.modules = [
             "node_modules",
-            __dirname + "/vendor/spatie/laravel-medialibrary-pro/resources/js",
+            // __dirname + "/vendor/spatie/laravel-medialibrary-pro/resources/js",
         ];
     });
     // mix.browserSync('127.0.0.1:8080');

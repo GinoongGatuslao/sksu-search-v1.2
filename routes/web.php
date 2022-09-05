@@ -61,7 +61,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('redirects', 'App\Http\Cont
 Route::middleware(['auth:sanctum', 'verified'])->get('/cdv/2y10XGG0AJ7EyQj1tWaGwP4O-Jex{id}ZBpCtK8-{sorter}gCyDNDF8n-Nq3QVjN1BzzXS', [CreateDVWrapperController::class, 'show'])->name('cdv');
 Route::middleware(['auth:sanctum', 'verified'])->get('/travel-order/3z21YHH1BK8FzRk2uXbHxQ5P-Kfy{id}ACqDuL9-hDz{isEdit}EOEG9o-Or4RW{travelOrderID}kO2CaaYT', [RoutingController::class, 'show'])->name('travel-order');
 //for media library dont delete also hehe
-Route::mediaLibrary();
+// Route::mediaLibrary();
 
 //delete lang karon
 Route::middleware(['auth:sanctum', 'verified'])->get('/to', function () {    return view('travelorder.travel-order-wrapper');});

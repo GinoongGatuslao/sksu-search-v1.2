@@ -1,61 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="application-name" content="{{ config('app.name') }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name') }}</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css"> --}}
-    <script src="{{ mix('js/app.js') }}" defer></script>
+        <style>[x-cloak] { display: none !important; }</style>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
+        @livewireScripts
+        @stack('scripts')
+    </head>
 
-    @livewireStyles
+    <body class="antialiased">
+        {{ $slot }}
 
-    <!-- Scripts -->
-    <style>
-        [x-cloak] {
-            display: none !important;
-        }
-
-    </style>
-
-
-</head>
-
-<body class="min-h-screen font-sans bg-gradient-to-b from-primary-300 via-white to-white">
-    <div class="min-h-screen">
-        @livewire('navigation-menu')
-        <!-- App -->
-        <!-- Page Heading -->
-        @if (isset($header))
-        <header class="bg-white shadow">
-            <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endif
-
-        <!-- Page Content -->
-        <main class="bg-transparent">
-            {{ $slot }}
-        </main>
-
-    </div>
-    <!-- <div class="relative bottom-0">@include('footer')</div> -->
-    @stack('modals')
-    
-    @livewireScripts
-    @stack('scripts')
-    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
-    <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
-    <x-livewire-alert::scripts />
-    <x-livewire-alert::flash />
-
-</body>
-
+        @livewire('notifications')
+    </body>
 </html>

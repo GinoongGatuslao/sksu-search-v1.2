@@ -23,7 +23,7 @@ module.exports = {
             },
             colors: {
                 danger: colors.rose,
-                primary: colors.blue,
+                primary: "#0c6600",
                 success: colors.green,
                 warning: colors.yellow,
 
